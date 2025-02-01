@@ -18,10 +18,23 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-door"></i></a>
+                <a class="nav-link active" aria-current="page" href="/">Home</i></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'addnew' %}"><i class="bi bi-person-plus-fill"></i></a>
+                <a class="nav-link" href="{% url 'addnew' %}"> Add New</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Courses
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="{% url 'search' %}?query=Python">Python</a></li>
+                  <li><a class="dropdown-item" href="{% url 'search' %}?query=Django">Django</a></li>
+                  <li><a class="dropdown-item" href="{% url 'search' %}?query=Java">Java</a></li>
+                  <li><a class="dropdown-item" href="{% url 'search' %}?query=ML">ML</a></li>
+                  <li><a class="dropdown-item" href="{% url 'search' %}?query=JavaScript">JavaScript</a></li>
+                  <li><a class="dropdown-item" href="{% url 'search' %}?query=DS">Data Science</a></li>
+              </ul>
               </li>
             
             </ul>

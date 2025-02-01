@@ -4,12 +4,12 @@ from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 class Student_Info(models.Model):
     courses =(
-        ("Django",'Django'),
-        ('JavaScript', 'JavaScript'),
         ('Python', 'Python'),
+        ("Django",'Django'),
         ('Java', 'Java'),
+        ('JavaScript', 'JavaScript'),
         ('ML', 'Machine Learning'),
-        ('AI', 'Artificial Intelligence'),
+        ('DS', 'Data Science'),
         )
     
     sID = models.BigIntegerField(primary_key=True)
@@ -21,3 +21,7 @@ class Student_Info(models.Model):
 
     def __str__(self):
         return  f"{self.sID} - {self.name}"
+    
+
+class CourseInfo(models.Model):
+    course_name = models.CharField(max_length=50)
