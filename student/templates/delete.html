@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Deletion</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light gray background */
+        }
+        .confirmation-card {
+            margin-top: 100px; /* 100px from the top */
+        }
+    </style>
+</head>
+<body class="d-flex justify-content-center">
+
+    <div class="card confirmation-card shadow-sm border-0 rounded-4 p-4" style="max-width: 400px; width: 100%;">
+        <div class="card-body text-center">
+            <h5 class="card-title text-danger fw-bold mb-3">Confirm Deletion</h5>
+            <p class="text-muted">
+                Are you sure you want to delete <strong>{{ student.name }}</strong> (ID: <strong>{{ student.sID }}</strong>)?
+            </p>
+
+            <form method="post" class="mt-4">
+                {% csrf_token %}
+                <div class="d-grid gap-2">
+                    <button type="submit" class="btn btn-danger fw-semibold">
+                        Delete
+                    </button>
+                    <a href="{% url 'home' %}" class="btn btn-outline-secondary fw-semibold">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

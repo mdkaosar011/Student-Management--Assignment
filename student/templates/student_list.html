@@ -1,0 +1,40 @@
+{% extends 'base.html' %} {% block content %} 
+{% if students %}
+<div class="container">
+  <h1 class="text-center p-5">Students List</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col" style ="text-align:center;">ID</th>
+        <th scope="col" style ="text-align:center;">Student Name</th>
+        <th scope="col" style ="text-align:center;">Email</th>
+        <th scope="col" style ="text-align:center;">Phone Number</th>
+        <th scope="col" style ="text-align:center;">Course</th>
+        <th scope="col" style ="text-align:center;">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for student in students %}
+      <tr>
+        <td  style ="text-align:center;">{{student.sID}}</td>
+        <td  style ="text-align:center;">{{student.name}}</td>
+        <td style ="text-align:center;">{{student.email}}</td>
+        <td style ="text-align:center;">{{student.phone_number}}</td>
+        <td style ="text-align:center;">{{student.course}}</td>
+        <td style ="text-align:center;">
+          <a class="btn btn-secondary btn-sm" href="{% url 'update' student.sID %}" role="button">Update</a>
+           <a class="btn btn-danger btn-sm" href="{% url 'delete' student.sID %}" role="button" >Delete</a> 
+        </td> 
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+<div class='container'>
+  <a href="{% url 'addnew' %}" class="btn btn-primary">Add Student</a>
+</div>
+{% else %}
+
+<h3 class="text-center p-5">No Student Available</h3>
+
+{% endif %} {% endblock %}
